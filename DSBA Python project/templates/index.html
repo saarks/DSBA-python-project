@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}
+DSBA 2023 NBA Project
+{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="/static/button.css">
+
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+
+<link rel="stylesheet" href="/static/main.css">
+  <body style="background-color: #c3e8f7;">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">HSE DSBA Python Project by Vasilev Egor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/statistics">Statistics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/source_code">Source code</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/streamlit">Streamlit</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <h1 class="text-center">NBA All Star Players and Stats 1980-2022</h1>
+      <h2 class="text-center">NBA All-Star Players</h2>
+      <p class="text-center">
+        The NBA All-Star Game is an annual exhibition game featuring the best players from the Eastern Conference
+        and the Western Conference. The format of the game has changed over the years, from the original East vs West
+        matchup to the recent team captain selection. The game has been a showcase of basketball talent and has
+        provided memorable performances by some of the greatest players in NBA history.
+      </p>
+      
+      <h3 class="text-center">Notable All-Star Performances</h3>
+      <p class="text-center">
+        Throughout the years, the NBA All-Star Game has produced many incredible moments and performances. Here are just
+        a few examples:
+      </p>
+      
+      <div class="row">
+        <div class="col-md-4">
+          <img src="/static/magic_1992.jpg" alt="Magic Johnson" class="plot-image">
+          <p class="text-center">Magic Johnson's MVP Performance in 1992</p>
+        </div>
+        <div class="col-md-4">
+          <img src="/static/mj_1988.jpg" alt="Michael Jordan" class="plot-image">
+          <p class="text-center">Michael Jordan's Game-Winning Shot in 1998</p>
+        </div>
+        <div class="col-md-4">
+          <img src="/static/curry_2022.jpg" alt="Steph Curry" class="plot-image">
+          <p class="text-center">Steph Curry recent performance in 2022 with record-breaking 50 points and 16 threes</p>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+  {% endblock %}

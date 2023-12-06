@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+Stats
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/code_style.css">
+<h1>Source code</h1>
+<h2>Imports</h2>
+<c>
+    import pandas as pd
+    import matplotlib.pyplot as plt
+</c>
+<h2>Data cleanup</h2>
+<c>
+    data = pd.read_csv('nba_all_star_data.csv')
+    
+    data = data.dropna()
+    
+    print(data.dtypes)
+    
+    if data.isnull().sum().sum() == 0:
+        print("Data is clean.")
+    else:
+        print("Data is not clean.")
+</c>
+<h2>Descriptive statistics</h2>
+<c>
+    def descriptive_stats(field):
+        # Calculate mean, median, and standard deviation
+        mean = data[field].mean()
+        median = data[field].median()
+        std_dev = data[field].std()
+
+        # Print the descriptive statistics
+        print(f"Descriptive Statistics for {field}:")
+        print(f"Mean: {mean}")
+        print(f"Median: {median}")
+        print(f"Standard Deviation: {std_dev}")
+
+        # Create a bar plot of the field with different colors
+        colors = ['red', 'orange', 'yellow']
+        plt.bar(['Mean', 'Median', 'Standard Deviation'], [mean, median, std_dev], color=colors)
+        plt.title(f"Descriptive Statistics for {field}")
+        plt.xlabel("Statistics")
+        plt.ylabel("Values")
+        plt.show()
+
+    descriptive_stats('fgm')
+    descriptive_stats('fg3m')
+    descriptive_stats('ftm')
+</c>
+<h2>Three simple plots</h2>
+<c>
+    numerical_fields = ['pts', 'reb', 'ast']
+
+    # Create three subplots for each numerical field
+    fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
+
+    # Generate plots for each numerical field
+    for i, field in enumerate(numerical_fields):
+        axes[i].hist(data[field], bins=20)
+        axes[i].set_xlabel(field)
+        axes[i].set_ylabel('Frequency')
+
+    # Adjust the spacing between subplots
+    plt.tight_layout()
+
+    # Display the plots
+    plt.show()
+</c>
+<h2>Comparison plots</h2>
+<c>
+    # Plot 1: Average Rebounds per Game vs. Average Steals per Game
+    plt.scatter(data['reb'], data['stl'])
+    plt.xlabel('Average Rebounds per Game')
+    plt.ylabel('Average Steals per Game')
+    plt.title('Player Performance: Rebounds vs. Steals')
+    plt.show()
+
+    # Plot 2: Average Field Goal Percentage vs. Average Three-Point Field Goal Percentage
+    plt.scatter(data['fg_pct'], data['fg3_pct'])
+    plt.xlabel('Average Field Goal Percentage')
+    plt.ylabel('Average Three-Point Field Goal Percentage')
+    plt.title('Player Shooting Efficiency: FG% vs. 3P%')
+    plt.show()
+</c>
+<h2>Hypothesis</h2>
+<c>
+    team_points = data.groupby('team')['pts'].mean().reset_index()
+    plt.bar(team_points['team'], team_points['pts'])
+    plt.xlabel('Team')
+    plt.ylabel('Average Points Scored')
+    plt.title('Average Points Scored by one player per Game by Team')
+    plt.show()
+</c>
+<h2>Modified data</h2>
+<c>
+    data['total_fg'] = data['fgm'] + data['fg3m']
+    data['reb_per_game'] = data['reb'] / data['games_played']
+
+    # Plot 'reb_per_game' against 'total_fg'
+    data.plot(x='total_fg', y='reb_per_game', kind='scatter')
+    plt.xlabel('Total field goals made')
+    plt.ylabel('Rebounds per game')
+    plt.title('Rebounds per game against total field goals')
+    plt.show()
+</c>
+{% endblock %}

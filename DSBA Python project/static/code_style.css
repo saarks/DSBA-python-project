@@ -1,0 +1,23 @@
+c {
+    display: block;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333333;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+  }

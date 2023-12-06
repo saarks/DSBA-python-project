@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+Stats
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/descriptive_statistics.css">
+  <h1>Descriptive Statistics</h1>
+  <img src="/static/desc_stat_fg3m.png" width="400" height="300">
+  <img src="/static/desc_stat_fgm.png" width="540" height="400">
+  <img src="/static/desc_stat_ftm.png" width="400" height="300">
+  <p>Bla-Bla-Bla about field goals made, 2 pointers made and free throws made.</p>
+  <h1>Plots</h1>
+  <img src="/static/freq_pts_reb_ast.png" width="1100" height="500" loading="lazy">
+  <p>BLa-Bla-Bla about frequency in points, rebound and assists per game.</p>
+  <h1>Detailed Overview</h1>
+  <img src="/static/reb_vs_stl.png" width="400" height="300">
+  <img src="/static/shoot_eff_fg_vs_3p.png" width="400" height="300" loading="lazy">
+  <p>Bla-Bla-Bla about comparisons etc.</p>
+  <h1>Hypothesis: whether there is a significant difference in the average points scored per game between different teams.</h1>
+  <p>Something about the hypothesis</p>
+  <img src="/static/avg_pts_by_player_pg_teams.png" width="1200" height="800" loading="lazy">
+  <p>some text</p>
+  <h1>Data transformation</h1>
+  <p>some text about data transformation</p>
+  <img src="/static/rpg_vs_totalfg.png" loading="lazy">
+  <p>some conclusion</p>
+{% endblock %}
