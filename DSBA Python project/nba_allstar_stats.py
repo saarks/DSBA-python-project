@@ -24,7 +24,7 @@ def descriptive_stats(field):
     plt.title(f"Descriptive Statistics for {field}")
     plt.xlabel("Statistics")
     plt.ylabel("Values")
-    plt.show()
+    #plt.show()
 
 descriptive_stats('fgm')
 descriptive_stats('fg3m')
@@ -37,25 +37,22 @@ numerical_fields = ['pts', 'reb', 'ast']
 # Create three subplots for each numerical field
 fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
 # Generate plots for each numerical field
+colors = ['#552244', '#55254d', '#542957', '#512e61', '#4c336b', '#443875', '#373e7f', '#224488']
 for i, field in enumerate(numerical_fields):
-    axes[i].hist(data[field], color="skyblue", ec="green", bins=20)
+    axes[i].hist(data[field], color=colors[i], bins=20)
     axes[i].set_xlabel(field)
     axes[i].set_ylabel('Frequency')
-
-# Adjust the spacing between subplots
 plt.tight_layout()
-
-# Display the plots
-plt.show()
+#plt.show()
 
 
 # Plot 1: Average Rebounds per Game vs. Average Steals per Game
-colors = ["rocket"]
+colors = sns.color_palette("viridis", as_cmap=True)
 sns.scatterplot(data, x='reb', y='stl', palette=colors, hue='turnover', legend=False)
 plt.xlabel('Average Rebounds per Game')
 plt.ylabel('Average Steals per Game')
 plt.title('Player Performance: Rebounds vs. Steals')
-plt.show()
+#plt.show()
 
 # Plot 2: Average Field Goal Percentage vs. Average Three-Point Field Goal Percentage
 colors = sns.color_palette("rocket")
@@ -63,45 +60,47 @@ sns.scatterplot(data, x='fg_pct', y='fg3_pct', palette=colors, hue='turnover', l
 plt.xlabel('Average Field Goal Percentage')
 plt.ylabel('Average Three-Point Field Goal Percentage')
 plt.title('Player Shooting Efficiency: FG% vs. 3P%')
-plt.show()
+#plt.show()
 
 #hypothesis: whether there is a significant difference in the average points scored per game between different teams.
 team_points = data.groupby('team')['pts'].mean().reset_index()
-plt.bar(team_points['team'], team_points['pts'])
+colors = ['#003f5c', '#444e86','#955196','#dd5182','#ff6e54','#ffa600']
+plt.bar(team_points['team'], team_points['pts'], color=colors)
 plt.xlabel('Team')
 plt.ylabel('Average Points Scored')
 plt.title('Average Points Scored by one player per Game by Team')
-plt.show()
+#plt.show()
 
 # Add new columns 'total_fg' and 'reb_per_game'
 data['total_fg'] = data['fgm'] + data['fg3m']
 data['reb_per_game'] = data['reb'] / data['games_played']
 
 # Plot 'reb_per_game' against 'total_fg'
-data.plot(x='total_fg', y='reb_per_game', kind='scatter')
+colors = sns.cubehelix_palette(as_cmap=True)
+sns.scatterplot(data, x='total_fg', y='reb_per_game', palette=colors, hue='turnover', legend=False)
 plt.xlabel('Total field goals made')
 plt.ylabel('Rebounds per game')
 plt.title('Rebounds per game against total field goals')
-plt.show()
+#plt.show()
 
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-# @app.route('/statistics')
-# def descriptive_statistics():
-#     return render_template('statistics.html')
+@app.route('/statistics')
+def descriptive_statistics():
+    return render_template('statistics.html')
 
-# @app.route('/source_code')
-# def source_code():
-#     return render_template('source_code.html')
+@app.route('/source_code')
+def source_code():
+    return render_template('source_code.html')
 
-# # @app.route('/streamlit')
-# # def streamlit():
-# #     return render_template('streamlit.html')
+# @app.route('/streamlit')
+# def streamlit():
+#     return render_template('streamlit.html')
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
