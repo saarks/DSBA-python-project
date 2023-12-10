@@ -7,23 +7,100 @@ Stats
 {% block content %}
 <link rel="stylesheet" href="/static/descriptive_statistics.css">
   <h1>Descriptive Statistics</h1>
-  <img src="/static/desc_stat_fg3m.png" width="400" height="300">
-  <img src="/static/desc_stat_fgm.png" width="540" height="400">
-  <img src="/static/desc_stat_ftm.png" width="400" height="300">
-  <p>Bla-Bla-Bla about field goals made, 2 pointers made and free throws made.</p>
+  <p>So, let's start our analysis.</p>
+  <div class="container">
+    <div class="plot-set">
+      <img class="plot" src="/static/desc_stat_fg3m.png" alt="Threes made">
+      <img class="plot" src="/static/desc_stat_fgm.png" alt="Deuces made">
+      <img class="plot" src="/static/desc_stat_ftm.png" alt="Free throws made">
+    </div>
+  </div>
+  <p>The mean value for threes made is close to 1.0,
+    indicating high three-point shooting skills,
+    while the median and standard deviation suggest variability.
+    For field goals made, both mean and median are around 8, with some variability.
+    Free throws made also have a mean and median close to 4, with variability.
+    These statistics highlight the skills and variability
+    of NBA All-star players in scoring points from different areas of the court.</p>
   <h1>Plots</h1>
-  <img src="/static/freq_pts_reb_ast.png" width="1100" height="500" loading="lazy">
-  <p>BLa-Bla-Bla about frequency in points, rebound and assists per game.</p>
+  <div class="container">
+    <div class="plot-set">
+      <img class="plot" src="/static/freq_pts_reb_ast.png" alt="Points, Rebouds, Assists">
+    </div>
+  </div>
+  <p>NBA All-star players' performance in terms of scoring, rebounds, and assists has been analyzed using frequency distributions.
+    The most frequent amount of points scored per game falls within the range of 18-25 points,
+    indicating consistent high scoring.
+    The frequency of rebounds follows a different pattern,
+    with a higher frequency in the range of 3-7 rebounds per game for smaller players like point guards,
+    and a peak in the range of 10-13 rebounds per game for larger players like centers.
+    The frequency of assists per game fluctuates around 2.5-6 assists.
+    These results provide insight into the distribution of scoring, rebounds, and assists among NBA All-star players.</p>
   <h1>Detailed Overview</h1>
-  <img src="/static/reb_vs_stl.png" width="400" height="300">
-  <img src="/static/shoot_eff_fg_vs_3p.png" width="400" height="300" loading="lazy">
-  <p>Bla-Bla-Bla about comparisons etc.</p>
+  <div class="container">
+    <div class="plot-set">
+      <img class="plot" src="/static/reb_vs_stl.png" alt="Points, Rebouds, Assists">
+      <img class="plot" src="/static/shoot_eff_fg_vs_3p.png" alt="Efficency of Field goals vs Threes">
+    </div>
+  </div>
+  <p>A scatterplot comparing Rebounds per game and Steals per game for NBA All-star players reveals
+    that most players fall within the range of 0.5-1 steals per game,
+    with a concentration of points in the lower part of the plot.
+    This indicates that while many All-star players are capable defenders,
+    they do not typically record high numbers of steals.
+    However, there are some standout defensive players who average up to 3.5 steals per game.
+    Conversely, there are some players who excel in rebounding,
+    with some All-star players averaging up to 15.0 rebounds per game,
+    but these same players may not have high steal numbers.</p>
+  <p>This scatterplot comparing Field Goal Percentage and Three Point Percentage for NBA All-star players reveals
+    that most players fall within the range of 0.4-0.55 for Field Goal Percentage
+    and 0.3-0.5 for Three Point Percentage.
+    This indicates that while many All-star players are efficient scorers,
+    they do not typically have a high percentage of three-pointers made.
+    Additionally, there is a feature line on the scatterplot
+    representing players who average 0.0% for Three Point Percentage,
+    which is due to these players not attempting many three-pointers rather than being poor shooters from beyond the arc.</p>
   <h1>Hypothesis: whether there is a significant difference in the average points scored per game between different teams.</h1>
-  <p>Something about the hypothesis</p>
-  <img src="/static/avg_pts_by_player_pg_teams.png" width="1200" height="800" loading="lazy">
-  <p>some text</p>
+  <p>At the heart of any successful sports team is the ability to score points.
+    But do certain NBA teams consistently outscore their opponents,
+    or is the gap between teams more narrow than we think?
+    In this analysis, we explore the hypothesis
+    that there is a significant difference in average points scored per game between different NBA teams.
+    Using data spanning from 1980 to 2022, we examine the average points scored by All-star players
+    from each team during this timeframe.
+    Our findings shed light on the consistency and parity of point scoring across different NBA teams over several decades.</p>
+  <div class="container">
+    <div class="plot-set">
+      <img class="plot" src="/static/avg_pts_by_player_pg_teams.png" alt="Average points scored by players in all teams">
+    </div>
+  </div>
+  <p>As we can see,
+    with data spanning from 1980 to 2022,
+    the plot focuses on the average points scored by All-star players from each team during this timeframe.
+    The results suggest that most teams are relatively equal in terms of average points scored,
+    with some minor fluctuations for teams like the
+    Charlotte Hornets, Detroit Pistons, New Jersey Nets, and Phoenix Suns
+    due to rebuild processes that resulted in fewer All-star players during certain periods. </p>
   <h1>Data transformation</h1>
-  <p>some text about data transformation</p>
-  <img src="/static/rpg_vs_totalfg.png" loading="lazy">
-  <p>some conclusion</p>
+  <p>This is a scatterplot comparing a player's combined two-pointers and three-pointers made per game (total_fg)
+    to their rebounds per game (reb_per_game),
+    with first field made by addition of two fields "Deuces made"(fgm) and "Threes made"(fg3m),
+    and the second one made by dividing "Rebounds"(reb) by "Total games played"(games_played).</p>
+  <div class="container">
+    <div class="plot-set">
+      <img class="plot" src="/static/rpg_vs_totalfg.png" alt="Rebounds per game vs total field goals per game">
+    </div>
+  </div>
+  <p>The plot reveals that the majority of players fall within a range of 6-12 total field goals per game,
+    with infrequent outliers.
+    This suggests that players who are efficient in scoring and rebounding
+    tend to have similar overall field goal production,
+    with a moderate number of shots taken per game.</p>
+  <p>My analysis of NBA All-Star Players showed that they tend to make a moderate number of three-pointers,
+    field goals, and free throws per game.
+    While most All-star players are efficient scorers,
+    they do not typically have a high percentage of three-pointers made.
+    Additionally, we found that most NBA teams have similar average point scores over several decades,
+    with some minor fluctuations for certain teams during rebuild processes.
+    Overall, my analysis suggests consistency and parity in point scoring across different NBA teams over several decades.</p>
 {% endblock %}

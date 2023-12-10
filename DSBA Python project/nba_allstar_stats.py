@@ -79,7 +79,7 @@ data['reb_per_game'] = data['reb'] / data['games_played']
 colors = sns.cubehelix_palette(as_cmap=True)
 sns.scatterplot(data, x='total_fg', y='reb_per_game', palette=colors, hue='turnover', legend=False)
 plt.xlabel('Total field goals made')
-plt.ylabel('Rebounds per game')
+plt.ylabel('Rebounds per all games')
 plt.title('Rebounds per game against total field goals')
 #plt.show()
 
