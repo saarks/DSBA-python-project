@@ -30,8 +30,39 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
+.container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.plot-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.plot-2 {
+  width: auto;
+  max-width: 1200px;
+  height: auto;
+  max-height: 500px;
+  margin-bottom: 30px;
+  border: 10px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
 .plot:hover {
   transform: scale(1.1);
+}
+
+.plot-2:hover {
+  transform: scale(1.2);
 }
 
 h1 {

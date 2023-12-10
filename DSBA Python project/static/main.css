@@ -1,8 +1,8 @@
 body {
   min-width: 800px;
-  background: #ff00cc;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ff00cc;
+background: -webkit-linear-gradient(to right, #333399, #ff00cc);
+background: linear-gradient(to right, #333399, #ff00cc);
 
   margin:0px;
 }
@@ -169,7 +169,6 @@ p {
 hr {
   background-color: #000;
 }
-  /* Plot style */
   .plot-image {
     max-width: 100%;
     height: auto;
@@ -177,7 +176,6 @@ hr {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Subtext style */
   p {
     font-size: 16px;
     line-height: 1.5;

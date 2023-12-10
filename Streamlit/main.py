@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 data = pd.read_csv('nba_all_star_data.csv')
 data = data.dropna()
@@ -29,21 +28,6 @@ teams = ["fgm", "fg3m", "ftm"]
 team = st.radio('Choose team:', teams)
 
 descriptive_stats(team)
-
-st.header("Numerical fields")
-# Select three numerical fields for plotting
-numerical_fields = ['pts', 'reb', 'ast']
-
-# Create three subplots for each numerical field
-fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
-# Generate plots for each numerical field
-colors = ['#552244', '#55254d', '#542957', '#512e61', '#4c336b', '#443875', '#373e7f', '#224488']
-for i, field in enumerate(numerical_fields):
-    axes[i].hist(data[field], color=colors[i], bins=20)
-    axes[i].set_xlabel(field)
-    axes[i].set_ylabel('Frequency')
-plt.tight_layout()
-st.pyplot(fig)
 
 # Plot 1: Average Rebounds per Game vs. Average Steals per Game
 
